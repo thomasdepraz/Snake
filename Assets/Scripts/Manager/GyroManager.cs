@@ -33,14 +33,6 @@ public class GyroManager : MonoBehaviour
     private Quaternion rotation;
     private bool gyroActive;
 
-    [Header("Debug")]
-    public GameObject phoneRotation;
-    private Text phoneRotationText;
-
-    void Start()
-    {
-        phoneRotationText = phoneRotation.GetComponent<Text>();  
-    }
     void Update()
     {
         if(gyroActive)
@@ -64,7 +56,6 @@ public class GyroManager : MonoBehaviour
     }
     public Quaternion GetGyroRotation()
     {
-        phoneRotationText.text = "Phone Rotation : " + rotation;
         Debug.Log("GyroRotation : " + rotation);
         return rotation;
     }
