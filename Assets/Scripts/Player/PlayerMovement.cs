@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Logic")]
     public float dirY;
     public float dirX;
+    private float idirX;
+    private float idirY;
 
     private Rigidbody2D rb;
 
@@ -23,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        idirX = Input.acceleration.x;
+        idirY = Input.acceleration.y;
+        Debug.Log(idirX + " " + idirY);
     }
 
     // Update is called once per frame
@@ -63,8 +68,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetDeviceMovement()
     {
-        dirX = Input.acceleration.x * moveSpeedModifier;
-        dirY = Input.acceleration.y * moveSpeedModifier;
+        dirX = (Input.acceleration.x - idirX) * moveSpeedModifier;
+        dirY = (Input.acceleration.y - idirY) * moveSpeedModifier;
     }
     #endregion
 }
