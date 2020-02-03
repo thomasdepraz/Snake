@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    static bool canMove;
+    public static bool canMove = false;
     #endregion
 
     // Start is called before the first frame update

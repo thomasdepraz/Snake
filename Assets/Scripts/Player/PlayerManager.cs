@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Elements")]
     public GameObject player;
     public CircleCollider2D playerCol;
+    public Animator anim;
     public GameObject spawner;
     private PickupSpawner pickupSpawner;
 
@@ -36,6 +37,15 @@ public class PlayerManager : MonoBehaviour
             pickupSpawner.isPickedUp = true;
             playerScore++;
             Debug.Log(playerScore);
+        }
+    }
+
+    public void GetAnimationEvent(string parameter)
+    {
+        if(parameter.Equals("spawn"))
+        {
+            anim.SetBool("HasSpawned", true);
+            PlayerMovement.canMove = true;
         }
     }
 }
