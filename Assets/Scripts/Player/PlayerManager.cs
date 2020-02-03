@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
-{
+{ 
     [Header("Elements")]
     public GameObject player;
     public CircleCollider2D playerCol;
+    public GameObject spawner;
+    private PickupSpawner pickupSpawner;
+
+    private int playerScore = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        pickupSpawner = spawner.GetComponent<PickupSpawner>();
     }
 
     // Update is called once per frame
@@ -24,6 +28,14 @@ public class PlayerManager : MonoBehaviour
         if(collision.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject); //POUR L'INSTANT
+        }
+
+        if(collision.gameObject.CompareTag("Pickup"))
+        {
+            Destroy(collision.gameObject);
+            pickupSpawner.isPickedUp = true;
+            playerScore++;
+            Debug.Log(playerScore);
         }
     }
 }

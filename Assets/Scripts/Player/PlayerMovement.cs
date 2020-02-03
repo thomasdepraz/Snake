@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         idirX = Input.acceleration.x;
         idirY = Input.acceleration.y;
-        Debug.Log(idirX + " " + idirY);
+        Debug.Log("idiX : " + idirX + ", idirY : " + idirY);
     }
 
     // Update is called once per frame
@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             canMove = true;
-            Debug.Log(canMove);
         }
     }
 
