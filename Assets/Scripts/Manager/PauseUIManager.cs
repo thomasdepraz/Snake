@@ -10,6 +10,7 @@ public class PauseUIManager : MonoBehaviour
     public GameObject pauseMenu;
     public Button pauseButton;
     public Image pauseButtonShadow;
+    public Animator pauseButtonAnimator;
     public Button resumeButton;
     public Button optionButton;
     public EventSystem eventSystem;
@@ -31,18 +32,20 @@ public class PauseUIManager : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        pauseButtonAnimator.SetBool("isPaused", true);
         gameIsPaused = true;
-        pauseMenu.SetActive(true);
-        pauseButton.gameObject.SetActive(false);
+        //pauseMenu.SetActive(true);
+        //pauseButton.gameObject.SetActive(false);
     }
 
     public void Resume()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+        pauseButtonAnimator.SetBool("isPaused", false);
         gameIsPaused = false;
-        pauseMenu.SetActive(false);
-        pauseButton.gameObject.SetActive(true);
+        //pauseMenu.SetActive(false);
+        //pauseButton.gameObject.SetActive(true);
     }
 
     public void Options()
@@ -51,5 +54,14 @@ public class PauseUIManager : MonoBehaviour
         //DO SHIT
     }
 
+    public void OnPressed()
+    {
+        pauseButtonShadow.enabled = false;
+    }
+
+    public void OnDeselect()
+    {
+        pauseButtonShadow.enabled = true;
+    }
 
 }
