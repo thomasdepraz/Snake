@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+
+    [Header("Elements")]
+    public CircleCollider2D playerCol;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +18,12 @@ public class Pickup : MonoBehaviour
     void Update()
     {
         
+    }
+    public void GetAnimationEvent(string parameter)
+    {
+        if (parameter.Equals("spawn"))
+        {
+            anim.SetBool("HasSpawned", true);
+        }
     }
 }

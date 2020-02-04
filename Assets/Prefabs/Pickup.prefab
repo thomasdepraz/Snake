@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8747354074772190712}
   - component: {fileID: 6840427628406912008}
   - component: {fileID: 8240825135886396277}
+  - component: {fileID: 5675358429014560275}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Pickup
@@ -112,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251c537b18d90c44c90d8cfe2cebd559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCol: {fileID: 8747354074772190712}
+  anim: {fileID: 5675358429014560275}
 --- !u!114 &8240825135886396277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,4 +152,23 @@ MonoBehaviour:
   - {x: -2.2777998, y: -1.1016811, z: 0}
   m_ShapePathHash: -575857346
   m_Mesh: {fileID: 0}
-  m_InstanceId: 16290
+  m_InstanceId: 16300
+--- !u!95 &5675358429014560275
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747354074772190709}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c490a7cb64f75d418d3f2f43f1971f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

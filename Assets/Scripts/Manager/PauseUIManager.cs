@@ -9,6 +9,7 @@ public class PauseUIManager : MonoBehaviour
     [Header("Elements")]
     public GameObject pauseMenu;
     public Button pauseButton;
+    public Image pauseButtonShadow;
     public Button resumeButton;
     public Button optionButton;
     public EventSystem eventSystem;
