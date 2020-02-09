@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -17,6 +15,10 @@ public class PlayerManager : MonoBehaviour
     public Transform head;
     private Vector3 headPoint;
 
+    //Tweaks
+    [Header("Tweaks")]
+    [Range(0.05f, 0.5f)]
+    public float lengthModifier = 0.05f;
 
     //Other
     [Header("Other")]
@@ -90,12 +92,12 @@ public class PlayerManager : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Pickup"))
         {
+            Pickup pickup = collision.gameObject.GetComponent<Pickup>();
+            playerScore += pickup.scoreValue;
+            playerTrail.trailLength += pickup.lengthModifier;
+            PlayerMovement.moveSpeedModifier += pickup.speedModifier;
             Destroy(collision.gameObject);
             pickupSpawner.isPickedUp = true;
-            playerScore++;
-            playerTrail.trailLength += 0.05f;
-            Debug.Log(playerScore);
-            Debug.Log(playerTrail.trailLength);
         }
     }
 
@@ -105,6 +107,12 @@ public class PlayerManager : MonoBehaviour
         {
             anim.SetBool("HasSpawned", true);
             PlayerMovement.canMove = true;
+        }
+
+        if(parameter.Equals("death"))
+        {
+            //anim.SetBool();
+            Destroy(gameObject);
         }
     }
 }

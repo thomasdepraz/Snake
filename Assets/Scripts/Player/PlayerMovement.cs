@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     #region Variables
     [Header("Tweaks")]
     [Range(0.05f, 2f)]
-    public float moveSpeedModifier = 1f;
+    public static float moveSpeedModifier = 1f;
     [Range(0f, 0.5f)]
     public float minDirValue = 0.1f;
 
@@ -33,14 +31,25 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         idirX = Input.acceleration.x;
         idirY = Input.acceleration.y;
+        System.Math.Round(idirX, 2);
+        System.Math.Round(idirY, 2);
         Debug.Log("idiX : " + idirX + ", idirY : " + idirY);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
-            GetDeviceMovement();
+        GetDeviceMovement();
+
+        if (dirX < minDirValue && dirX > -minDirValue && dirY < minDirValue && dirY > -minDirValue)
+        {
+            //the phone rotation is to small
+        }
+        else
+        {
+            dir = new Vector2(dirX, dirY).normalized * moveSpeedModifier;
+            canMove = true;
+        }
     }
 
     private void FixedUpdate()
@@ -56,21 +65,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = dir;
     }
+
+
     private void GetDeviceMovement()
     {
         dirX = (Input.acceleration.x - idirX);
         dirY = (Input.acceleration.y - idirY);
-
-        dir = new Vector2(dirX, dirY).normalized * moveSpeedModifier;//C4EST CA QUIL FAUT UTILISER
-
-        if (dirX < minDirValue && dirX > -minDirValue && dirY < minDirValue && dirY > -minDirValue)
-        {
-            canMove = false;
-        }
-        else
-        {
-            canMove = true;
-        }
+        System.Math.Round(dirX, 2);
+        System.Math.Round(dirY, 2);
     }
     #endregion
 }

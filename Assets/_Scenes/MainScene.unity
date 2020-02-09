@@ -709,7 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586fe973098bb554c8eefbc87d44f1ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedModifier: 1
   minDirValue: 0.1
   dirY: 0
   dirX: 0
@@ -729,6 +728,7 @@ MonoBehaviour:
   playerCol: {fileID: 470121241}
   anim: {fileID: 470121246}
   head: {fileID: 270221603}
+  lengthModifier: 0.05
   spawner: {fileID: 934881784}
 --- !u!95 &470121246
 Animator:
@@ -1502,8 +1502,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3837224076a3244db01a8c785548c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup: {fileID: 8747354074772190709, guid: c06879006806dc043b1944590c9e4a43, type: 3}
+  normalPickup: {fileID: 8747354074772190709, guid: c06879006806dc043b1944590c9e4a43,
+    type: 3}
+  fasterPickup: {fileID: 2949472869070041184, guid: 30a1dbcd6839d1647adb19256ffa9841,
+    type: 3}
+  slowerPickup: {fileID: 1101195305553286738, guid: 16a70ce756c4c364a8faff37dcec1f7d,
+    type: 3}
+  smallerPickup: {fileID: 2772682793372911113, guid: bd0a3292664420b45b8be26b1772bb0f,
+    type: 3}
+  longerPickup: {fileID: 8562916938492525235, guid: 95bbce313f71e03419e6c1339f252221,
+    type: 3}
   pickupParent: {fileID: 1599615675}
+  spawnTime: 0.5
   isPickedUp: 1
 --- !u!1 &1060925795
 GameObject:
