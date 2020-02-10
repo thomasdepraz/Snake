@@ -4,9 +4,9 @@ public class PickupSpawner : MonoBehaviour
 {
     [Header("Elements")]
     public GameObject normalPickup;     //regular pickup, small length bonus, low points, no lifetime
-    public GameObject fasterPickup;     //this pickup ups the player's speed, high points, medium lifetime;
+    public GameObject fasterPickup;     //this pickup ups the player's speed, high points, medium lifetime
     public GameObject slowerPickup;     //slows the player, high points, small lifetime
-    public GameObject smallerPickup;    //smaller player, low points, small lifetime;
+    public GameObject smallerPickup;    //smaller player, low points, small lifetime
     public GameObject longerPickup;     //longer player, huge points, medium lifetime
     public GameObject pickupParent;     
 

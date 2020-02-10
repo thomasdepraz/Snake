@@ -93,9 +93,11 @@ public class PlayerManager : MonoBehaviour
         if(collision.gameObject.CompareTag("Pickup"))
         {
             Pickup pickup = collision.gameObject.GetComponent<Pickup>();
+
             playerScore += pickup.scoreValue;
             playerTrail.trailLength += pickup.lengthModifier;
             PlayerMovement.moveSpeedModifier += pickup.speedModifier;
+
             Destroy(collision.gameObject);
             pickupSpawner.isPickedUp = true;
         }

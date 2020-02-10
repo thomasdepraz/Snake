@@ -116,7 +116,8 @@ MonoBehaviour:
   playerCol: {fileID: 8747354074772190712}
   anim: {fileID: 5675358429014560275}
   speedModifier: 0
-  lengthmodifier: 0
+  lengthModifier: 0.05
+  scoreValue: 50
   lifeTime: 0
 --- !u!114 &8240825135886396277
 MonoBehaviour:
@@ -155,7 +156,7 @@ MonoBehaviour:
   - {x: -2.2777998, y: -1.1016811, z: 0}
   m_ShapePathHash: -575857346
   m_Mesh: {fileID: 0}
-  m_InstanceId: 18834
+  m_InstanceId: 16232
 --- !u!95 &5675358429014560275
 Animator:
   serializedVersion: 3
