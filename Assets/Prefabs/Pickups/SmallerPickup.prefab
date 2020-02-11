@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5bcff2955abdc7c4e8780b91d75a8430, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.11576605, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.9175284, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   playerCol: {fileID: 2772682793372911117}
   anim: {fileID: 2772682793372911112}
   speedModifier: 0
-  lengthModifier: -0.5
+  lengthModifier: -0.1
   scoreValue: 50
   lifeTime: 0
 --- !u!114 &2772682793372911119
@@ -156,7 +156,7 @@ MonoBehaviour:
   - {x: -2.2777998, y: -1.1016811, z: 0}
   m_ShapePathHash: -575857346
   m_Mesh: {fileID: 0}
-  m_InstanceId: -12480
+  m_InstanceId: 16934
 --- !u!95 &2772682793372911112
 Animator:
   serializedVersion: 3

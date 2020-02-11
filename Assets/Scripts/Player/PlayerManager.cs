@@ -27,7 +27,8 @@ public class PlayerManager : MonoBehaviour
 
 
     
-    private int playerScore = 0;
+    public static int playerScore = 0;
+    public static int pickupCount = 0;
 
 
     // Start is called before the first frame update
@@ -68,17 +69,6 @@ public class PlayerManager : MonoBehaviour
         {
             playerTrail.isEmitting = true;
         }
-
-        if(playerTrail.trailRenderer.bounds.Contains(headPoint))
-        {
-            Debug.Log("I am in bounds");
-            //Destroy(gameObject);//FOR NOW
-        }
-
-        if (playerTrail.trailRenderer.bounds.Intersects(playerTrail.trailRenderer.bounds))
-        {
-            Debug.Log("Intersect with myself");
-        }
     }
    
 
@@ -95,11 +85,14 @@ public class PlayerManager : MonoBehaviour
             Pickup pickup = collision.gameObject.GetComponent<Pickup>();
 
             playerScore += pickup.scoreValue;
-            playerTrail.trailLength += pickup.lengthModifier;
+            PlayerTrail.trailLength += pickup.lengthModifier;
             PlayerMovement.moveSpeedModifier += pickup.speedModifier;
 
             Destroy(collision.gameObject);
             pickupSpawner.isPickedUp = true;
+
+            pickupCount++;
+            Debug.Log(playerScore);
         }
     }
 
