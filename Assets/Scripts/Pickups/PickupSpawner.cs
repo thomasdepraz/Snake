@@ -10,6 +10,10 @@ public class PickupSpawner : MonoBehaviour
     public GameObject longerPickup;     //longer player, huge points, medium lifetime
     public GameObject pickupParent;
     private GameObject pickupToSpawn;
+    //Player elements
+    private GameObject player;
+    private PlayerMovement playerMovement;
+    private PlayerTrail playerTrail;
 
     [Header("Tweak")]
     [Range(0f, 5f)]
@@ -20,6 +24,9 @@ public class PickupSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerTrail = player.GetComponent<PlayerTrail>();
     }
 
     // Update is called once per frame
@@ -39,11 +46,11 @@ public class PickupSpawner : MonoBehaviour
         if (PlayerManager.pickupCount > 5)
         {
             //Choose a pickup based on randValue
-            if (randValue < 7 && PlayerTrail.trailLength > 1f)
+            if (randValue < 7 && playerTrail.trailLength > 1f)
                 pickupToSpawn = smallerPickup;
             else if (randValue > 7 && randValue < 16)
                 pickupToSpawn = longerPickup;
-            else if (randValue > 16 && randValue < 30 && PlayerMovement.moveSpeedModifier > 0.4)
+            else if (randValue > 16 && randValue < 30 && playerMovement.moveSpeedModifier > 0.4)
                 pickupToSpawn = slowerPickup;
             else if (randValue > 30 && randValue < 45)
                 pickupToSpawn = fasterPickup;

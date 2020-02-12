@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     #region Variables
     [Header("Tweaks")]
     [Range(0.05f, 2f)]
-    public static float moveSpeedModifier = 1f;
+    public float moveSpeedModifier = 1f;
     [Range(0f, 0.5f)]
     public float minDirValue = 0.1f;
 

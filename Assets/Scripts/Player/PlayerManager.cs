@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public CircleCollider2D playerCol;
     public Animator anim;
     private PlayerTrail playerTrail;
+    private PlayerMovement playerMovement;
     public Transform head;
     private Vector3 headPoint;
 
@@ -43,6 +44,9 @@ public class PlayerManager : MonoBehaviour
 
         //Get player trail
         playerTrail = gameObject.GetComponent<PlayerTrail>();
+
+        //Get player movement
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
 
         //GetHeadPosition
         headPoint = head.position;
@@ -85,8 +89,8 @@ public class PlayerManager : MonoBehaviour
             Pickup pickup = collision.gameObject.GetComponent<Pickup>();
 
             playerScore += pickup.scoreValue;
-            PlayerTrail.trailLength += pickup.lengthModifier;
-            PlayerMovement.moveSpeedModifier += pickup.speedModifier;
+            playerTrail.trailLength += pickup.lengthModifier;
+            playerMovement.moveSpeedModifier += pickup.speedModifier;
 
             Destroy(collision.gameObject);
             pickupSpawner.isPickedUp = true;

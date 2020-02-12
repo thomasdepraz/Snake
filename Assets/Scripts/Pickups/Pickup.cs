@@ -15,8 +15,6 @@ public class Pickup : MonoBehaviour
     public int scoreValue;
     public float lifeTime;
 
-  
-    
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +33,11 @@ public class Pickup : MonoBehaviour
         {
             anim.SetBool("HasSpawned", true);
             if (lifeTime != 0)
-                StartCoroutine("LifeTime");
+            {
+                 Debug.Log("start coroutine");
+                 StartCoroutine("LifeTime");
+            }
+               
         }
             
 
@@ -51,8 +53,10 @@ public class Pickup : MonoBehaviour
     private IEnumerator LifeTime()
     {
         new WaitForSeconds(lifeTime);
-        
+
         //lancer l'anim de destruction
+        Destroy(gameObject);
+
         yield return null;
     }
 }

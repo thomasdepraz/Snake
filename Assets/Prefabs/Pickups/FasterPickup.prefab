@@ -118,7 +118,7 @@ MonoBehaviour:
   speedModifier: 0.5
   lengthModifier: 0.1
   scoreValue: 200
-  lifeTime: 0
+  lifeTime: 5
 --- !u!114 &2582589060842303200
 MonoBehaviour:
   m_ObjectHideFlags: 0
