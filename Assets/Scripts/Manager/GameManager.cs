@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     private int score;
     private int highscore;
 
+    //CAMERA
+    private float height;
+    private float width;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,11 @@ public class GameManager : MonoBehaviour
         //Get Spawner
         spawner = GameObject.FindGameObjectWithTag("Spawner");
         pickupSpawner = spawner.GetComponent<PickupSpawner>();
+
+        //Get Screen resolution in units
+        height = Camera.main.orthographicSize * 2;
+        width = height * Screen.width / Screen.height;
+
 
 
     }
